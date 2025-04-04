@@ -8,7 +8,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # get data
-data = pd.read_csv("data.csv")
+data = pd.read_csv("diabetes(1).csv")
 print(data.head())
 
 # get variables
@@ -24,5 +24,8 @@ x_train_scaled = scaler.fit_transform(x_train)
 x_test_scaled = scaler.fit_transform(x_test)
 
 # Instantiate and train the model
-model
+model = MLPClassifier(max_iter=1000, alpha=1)
+model.fit(x_train, y_train)
+print("Model Accuracy: on training set:", model.score(x_train, y_train))
+print("Model Accuracy: on test set:", model.score(x_test, y_test))
 
